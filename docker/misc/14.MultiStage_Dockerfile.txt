@@ -46,7 +46,7 @@ WORKDIR /helloworld
 COPY helloworld.go .
 RUN GOOS=linux go build -a -installsuffix cgo -o helloworld .
 
-FROM alpine:3.9.3
+FROM alpine:3.18.8
 WORKDIR /root
 COPY --from=compiler /helloworld/helloworld .
 CMD ["./helloworld"]
